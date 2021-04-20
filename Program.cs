@@ -13,7 +13,7 @@ namespace VeterinaryСlinic
     {
         static void Main()
         {
-            var connectionString = "mongodb://localhost:27017";
+            var connectionString = "mongodb://localhost:15000";
             var dbName = "petdb";
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(dbName);
