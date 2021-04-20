@@ -16,7 +16,8 @@ namespace VeterinaryСlinic.Repositories
     {
         public PetRepository(IMongoDatabase database) : base(database)
         {
-            collection.Indexes.CreateOne(new CreateIndexModel<Pet>("{ KindOfKindOfAnimal: 1 }"));
+            collection.Indexes.CreateOne(new CreateIndexModel<Pet>(Builders<Pet>.IndexKeys.Descending(pet => pet.RegistrationDate)));
+            collection.Indexes.CreateOne(new CreateIndexModel<Pet>(Builders<Pet>.IndexKeys.Descending(pet => pet.KindOfAnimal)));
         }
         public List<Pet> FindWithLimit(int pageSize, int page)
         {
